@@ -8,6 +8,8 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Alert,
+  Button,
   Image,
   ScrollView,
   StatusBar,
@@ -87,7 +89,7 @@ function App(): React.JSX.Element {
         style={{width: 100, height: 100}}
       />
       {/* Adding more items to make content scrollable */}
-      {Array.from({length: 20}, (_, i) => (
+      {Array.from({length: 10}, (_, i) => (
         <View key={i} style={{marginVertical: 10, alignItems: 'center'}}>
           <Text style={{fontSize: 16}}>Item {i + 1}</Text>
           <Image
@@ -96,6 +98,12 @@ function App(): React.JSX.Element {
           />
         </View>
       ))}
+      <Button
+        title="Click Me"
+        onPress={() => {
+          Alert.alert('Button pressed!');
+        }}
+      />
     </ScrollView>
   );
 }
