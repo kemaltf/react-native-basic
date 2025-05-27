@@ -76,54 +76,52 @@ function App(): React.JSX.Element {
   const safePadding = '5%';
 
   return (
-    <ScrollView
-      style={{flex: 1}}
-      contentContainerStyle={{
-        alignItems: 'center',
-        paddingVertical: 20,
-      }}>
-      <Text>Hello World</Text>
-      <Text style={{fontSize: 20, color: 'blue'}}>This is some blue text.</Text>
-      <Image
-        source={{uri: 'https://picsum.photos/200/300'}}
-        style={{width: 100, height: 100}}
-      />
+    <ScrollView style={styles.container}>
       {/* Adding more items to make content scrollable */}
       {Array.from({length: 10}, (_, i) => (
-        <View key={i} style={{marginVertical: 10, alignItems: 'center'}}>
-          <Text style={{fontSize: 16}}>Item {i + 1}</Text>
+        <View style={styles.card}>
+          <Text style={styles.title}>Hello World</Text>
           <Image
             source={{uri: `https://picsum.photos/100/100?random=${i}`}}
             style={{width: 100, height: 100, marginTop: 10}}
           />
         </View>
       ))}
-      <Button
-        title="Click Me"
-        onPress={() => {
-          Alert.alert('Button pressed!');
-        }}
-      />
+      <View style={{paddingBottom: 50}}>
+        <Button
+          title="Click Me"
+          onPress={() => {
+            Alert.alert('Button pressed!');
+          }}
+        />
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 20,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  card: {
+    backgroundColor: '#f8f9fa',
+    borderRadius: 10,
+    padding: 15,
+    marginBottom: 15,
+    // Bayangan untuk iOS
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    // Bayangan untuk Android
+    elevation: 3,
   },
-  sectionDescription: {
-    marginTop: 8,
+  title: {
     fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333',
   },
 });
 
