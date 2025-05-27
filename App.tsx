@@ -75,6 +75,7 @@ function App(): React.JSX.Element {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Hello World</Text>
+      <Text style={{fontSize: 20, color: 'blue'}}>This is some blue text.</Text>
     </View>
   );
 }
