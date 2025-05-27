@@ -81,6 +81,12 @@ function App(): React.JSX.Element {
         source={{uri: 'https://picsum.photos/200/300'}}
         style={{width: 100, height: 100}}
       />
+      <ScrollView>
+        <Text>Item 1</Text>
+        <Text>Item 2</Text>
+        <Text>Item 3</Text>
+        {/* More items */}
+      </ScrollView>
     </View>
   );
 }
