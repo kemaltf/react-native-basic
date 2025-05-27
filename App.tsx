@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Image,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -76,6 +77,10 @@ function App(): React.JSX.Element {
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Hello World</Text>
       <Text style={{fontSize: 20, color: 'blue'}}>This is some blue text.</Text>
+      <Image
+        source={{uri: 'https://picsum.photos/200/300'}}
+        style={{width: 100, height: 100}}
+      />
     </View>
   );
 }
