@@ -74,20 +74,29 @@ function App(): React.JSX.Element {
   const safePadding = '5%';
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <ScrollView
+      style={{flex: 1}}
+      contentContainerStyle={{
+        alignItems: 'center',
+        paddingVertical: 20,
+      }}>
       <Text>Hello World</Text>
       <Text style={{fontSize: 20, color: 'blue'}}>This is some blue text.</Text>
       <Image
         source={{uri: 'https://picsum.photos/200/300'}}
         style={{width: 100, height: 100}}
       />
-      <ScrollView>
-        <Text>Item 1</Text>
-        <Text>Item 2</Text>
-        <Text>Item 3</Text>
-        {/* More items */}
-      </ScrollView>
-    </View>
+      {/* Adding more items to make content scrollable */}
+      {Array.from({length: 20}, (_, i) => (
+        <View key={i} style={{marginVertical: 10, alignItems: 'center'}}>
+          <Text style={{fontSize: 16}}>Item {i + 1}</Text>
+          <Image
+            source={{uri: `https://picsum.photos/100/100?random=${i}`}}
+            style={{width: 100, height: 100, marginTop: 10}}
+          />
+        </View>
+      ))}
+    </ScrollView>
   );
 }
 
