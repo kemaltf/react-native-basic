@@ -1,6 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from '../screens/Home/HomeScreen';
 import DetailsScreen from '../screens/Details/DetailsScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -8,6 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // Create navigators
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 // Stack navigator for Home tab
 const HomeStack = () => {
@@ -36,8 +38,21 @@ const ProfileStack = () => {
   );
 };
 
-// Main tab navigator
-const AppNavigator: React.FC = () => {
+// Component for tab icons
+const TabBarIcon = ({
+  name,
+  color,
+  size,
+}: {
+  name: string;
+  color: string;
+  size: number;
+}) => {
+  return <Ionicons name={name} size={size} color={color} />;
+};
+
+// Tab navigator
+const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -69,24 +84,35 @@ const AppNavigator: React.FC = () => {
   );
 };
 
-// Component for tab icons
-const TabBarIcon = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  name,
-  color,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  size,
-}: {
-  name: string;
-  color: string;
-  size: number;
-}) => {
-  // If you're using react-native-vector-icons, uncomment the code below
-  // import Ionicons from 'react-native-vector-icons/Ionicons';
-  // return <Ionicons name={name} size={size} color={color} />;
-
-  // Use text as placeholder if not using icons
-  return <Ionicons name={name} size={size} color={color} />;
+// Main drawer navigator
+const AppNavigator: React.FC = () => {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        drawerActiveTintColor: '#0066cc',
+        drawerInactiveTintColor: 'gray',
+      }}>
+      <Drawer.Screen
+        name="TabNavigator"
+        component={TabNavigator}
+        options={{
+          title: 'Main Menu',
+          drawerIcon: ({color, size}) => (
+            <Ionicons name="menu" size={size} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={DetailsScreen}
+        options={{
+          drawerIcon: ({color, size}) => (
+            <Ionicons name="settings" size={size} color={color} />
+          ),
+        }}
+      />
+    </Drawer.Navigator>
+  );
 };
 
 export default AppNavigator;
