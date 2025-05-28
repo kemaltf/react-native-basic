@@ -1,67 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import React from 'react';
-// import type {PropsWithChildren} from 'react';
 import {
   Alert,
   Button,
   Image,
   ScrollView,
-  // StatusBar,
   StyleSheet,
   Text,
-  // useColorScheme,
   View,
 } from 'react-native';
 
-import // Colors,
-// DebugInstructions,
-// Header,
-// LearnMoreLinks,
-// ReloadInstructions,
-'react-native/Libraries/NewAppScreen';
+import 'react-native/Libraries/NewAppScreen';
 
-// type SectionProps = PropsWithChildren<{
-//   title: string;
-// }>;
-
-// function Section({children, title}: SectionProps): React.JSX.Element {
-//   const isDarkMode = useColorScheme() === 'dark';
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {
-//             color: isDarkMode ? Colors.white : Colors.black,
-//           },
-//         ]}>
-//         {title}
-//       </Text>
-//       <Text
-//         style={[
-//           styles.sectionDescription,
-//           {
-//             color: isDarkMode ? Colors.light : Colors.dark,
-//           },
-//         ]}>
-//         {children}
-//       </Text>
-//     </View>
-//   );
-// }
-
-// Dummy Screens
 function HomeScreen({
   navigation,
 }: {
@@ -104,7 +58,6 @@ function DetailsScreen() {
   );
 }
 
-// Set up Stack Navigator
 const Stack = createNativeStackNavigator();
 
 export default function App() {
